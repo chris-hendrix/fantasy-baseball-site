@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useTable } from 'react-table'
 
 import makeData from './makeData'
+import {getSheetColumns, getSheetData} from './googleData'
 
 const Styles = styled.div`
   padding: 1rem;
@@ -75,6 +76,43 @@ function Table({ columns, data }) {
 }
 
 function App() {
+  /*
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: 'Header',
+        columns: [
+          {
+            Header: 'First Name',
+            accessor: 'firstName',
+          },
+          {
+            Header: 'Last Name',
+            accessor: 'lastName',
+          },
+          {
+            Header: 'Age',
+            accessor: 'age',
+          },
+          {
+            Header: 'Visits',
+            accessor: 'visits',
+          },
+          {
+            Header: 'Status',
+            accessor: 'status',
+          },
+          {
+            Header: 'Profile Progress',
+            accessor: 'progress',
+          }
+        ],
+      },
+    ],
+    []
+  )
+  */
+/*
   const columns = React.useMemo(
     () => [
       {
@@ -114,11 +152,25 @@ function App() {
     ],
     []
   )
-
-  const data = React.useMemo(() => makeData(20), [])
+*/
+  //const data = React.useMemo(() => makeData(20), [])
+  
+  const columns = React.useMemo( () => [{
+    Header: "header",
+    columns: [
+      {Header: "Owner", accessor: "Owner"},
+      {Header: "FullName", accessor: "FullName"},
+      {Header: "Email", accessor: "Email"},
+    ]
+  }], [])
+  
+  //const columns = React.useMemo(() => getSheetColumns('1I1G0P8QofhKL2f2EWTLeNGMZ3xedoC5j09FcxN2vigM', 'Owners'), [])
+  const data = React.useMemo(() => getSheetData('1I1G0P8QofhKL2f2EWTLeNGMZ3xedoC5j09FcxN2vigM', 'Owners'), [])
 
   return (
     <Styles>
+      {console.log(columns)}
+      {console.log(data)}
       <Table columns={columns} data={data} />
     </Styles>
   )
