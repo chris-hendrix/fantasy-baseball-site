@@ -44,16 +44,10 @@ async function getSheetColumns(docId, sheetName){
     return {
       Header: h,
       accessor: getAccessor(h),
+      canGroupBy: false,
     }
   })
-  const columnObjects = [
-    {
-      Header: 'header',
-      columns: columns
-    }
-  ]
   
-  //console.log(columnsObject)
-  return columnObjects
+  return columns
 }
 export { getSheetColumns, getSheetData }
