@@ -9,9 +9,15 @@ async function getSheet(docId, sheetName){
     private_key: creds.private_key.replace(/\\n/g, "\n")
   });
   await doc.loadInfo();
+  console.log(doc)
   const sheet = doc.sheetsByTitle[sheetName];
   return sheet
 }
+
+function getAccessor(columnName){
+  return columnName.replace(/ /g, '')
+}
+
 
 async function getSheetData(docId, sheetName) {
   const sheet = await getSheet(docId, sheetName)
@@ -22,7 +28,7 @@ async function getSheetData(docId, sheetName) {
   rows.forEach(row => { 
     const obj = {}
     headers.forEach(h=>{
-      obj[h] = row[h]
+      obj[getAccessor(h)] = row[h]
     })
     data.push(obj)
    })
@@ -34,18 +40,20 @@ async function getSheetColumns(docId, sheetName){
   const sheet = await getSheet(docId, sheetName)
   await sheet.loadHeaderRow()
   const headers = sheet.headerValues
-  const columns = headers.map(x => {
+  const columns = headers.map(h => {
     return {
-      Header: x,
-      accessor: x.toLowerCase().replace(/ /g, ''),
+      Header: h,
+      accessor: getAccessor(h),
     }
   })
-  const columnsObject = {
-    Header: 'header',
-    columns: columns
-  }
-  console.log(columnsObject)
-  return columnsObject
+  const columnObjects = [
+    {
+      Header: 'header',
+      columns: columns
+    }
+  ]
+  
+  //console.log(columnsObject)
+  return columnObjects
 }
-
 export { getSheetColumns, getSheetData }
