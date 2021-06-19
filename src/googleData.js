@@ -15,13 +15,13 @@ async function getSheet(docId, sheetName){
 }
 
 function getAccessor(columnName){
-  return columnName.replace(/ /g, '')
+  return columnName.replace(/ /g, '').toLowerCase()
 }
 
 
 async function getSheetData(docId, sheetName) {
   const sheet = await getSheet(docId, sheetName)
-  const rows = await sheet.getRows({ offset: 1 })
+  const rows = await sheet.getRows({ offset: 0 })
   await sheet.loadHeaderRow()
   const headers = sheet.headerValues
   const data = []
@@ -32,7 +32,6 @@ async function getSheetData(docId, sheetName) {
     })
     data.push(obj)
    })
-  console.log(data)
   return data
 }
 

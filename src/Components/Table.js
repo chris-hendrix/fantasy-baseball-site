@@ -2,7 +2,7 @@ import React from 'react';
 import { useTable } from 'react-table'
 
 
-export default function Table({ columns, data }) {
+function Table({ columns, data }) {
   // Use the state and functions returned from useTable to build your UI
   const {
     getTableProps,
@@ -44,3 +44,6 @@ export default function Table({ columns, data }) {
     </table>
   )
 }
+
+
+  export {Table}

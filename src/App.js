@@ -1,6 +1,6 @@
 import React from 'react'
 import { getSheetColumns, getSheetData } from './googleData'
-import Table from './Table'
+import {Table} from './Components/FilterTable'
 import styled from 'styled-components'
 
 const Styles = styled.div`
@@ -33,14 +33,12 @@ class App extends React.Component {
     super(props)
     this.state = {
       docId: '1I1G0P8QofhKL2f2EWTLeNGMZ3xedoC5j09FcxN2vigM',
-      sheetName: 'Owners',
+      sheetName: 'Players',
       columns: [],
       data: [],
-      interval: 10000
+      interval: 10000,
+      filters: []
     }
-    console.log('constructor')
-    console.log(this.state.columns)
-    console.log(this.state.data)
   }
 
   getColumns() {
@@ -67,6 +65,7 @@ class App extends React.Component {
     this.timer = setInterval(() => {
       this.getColumns()
       this.getData()
+      console.log(this.state.columns)
     }, this.state.interval)
     this.getData()
   }
@@ -78,9 +77,6 @@ class App extends React.Component {
   render() {
     return (
       <Styles>
-        {console.log('rendered')}
-        {console.log(this.state.columns)}
-        {console.log(this.state.data)}
         <Table columns={this.state.columns} data={this.state.data} />
       </Styles>
     )
