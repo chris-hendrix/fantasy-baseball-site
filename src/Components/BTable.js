@@ -1,5 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import BTable from 'react-bootstrap/Table';
+
 import {
   useTable,
   usePagination,
@@ -15,52 +17,10 @@ import {
     fuzzyTextFilterFn
   } from './Fitlers'
 
-const Styles = styled.div`
-  padding: 1rem;
-
-  table {
-    border-spacing: 0;
-    border: 1px solid black;
-
-    tr {
-      :last-child {
-        td {
-          border-bottom: 0;
-        }
-      }
-    }
-
-    th,
-    td {
-      margin: 0;
-      padding: 0.5rem;
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
-
-      :last-child {
-        border-right: 0;
-      }
-    }
-
-    td {
-      input {
-        font-size: 1rem;
-        padding: 0;
-        margin: 0;
-        border: 0;
-      }
-    }
-  }
-
-  .pagination {
-    padding: 0.5rem;
-  }
-`
-
 
 
 // Be sure to pass our updateMyData and the skipReset option
-function Table({ columns, data, updateMyData, skipReset }) {
+function ReactTable({ columns, data, updateMyData, skipReset }) {
   const filterTypes = React.useMemo(
     () => ({
       // Add a new fuzzyTextFilterFn filter type.
@@ -94,7 +54,6 @@ function Table({ columns, data, updateMyData, skipReset }) {
   // Use the state and functions returned from useTable to build your UI
   const {
     getTableProps,
-    getTableBodyProps,
     headerGroups,
     prepareRow,
     page, // Instead of using 'rows', we'll use page,
@@ -151,7 +110,7 @@ function Table({ columns, data, updateMyData, skipReset }) {
   // Render the UI for your table
   return (
     <>
-      <table {...getTableProps()}>
+      <BTable striped bordered hover size="sm" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -181,7 +140,7 @@ function Table({ columns, data, updateMyData, skipReset }) {
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()}>
+        <tbody>
           {page.map(row => {
             prepareRow(row)
             return (
@@ -213,7 +172,7 @@ function Table({ columns, data, updateMyData, skipReset }) {
             )
           })}
         </tbody>
-      </table>
+      </BTable>
       {/*
         Pagination can be built however you'd like.
         This is just a very basic UI implementation:
@@ -332,4 +291,4 @@ const IndeterminateCheckbox = React.forwardRef(
   }
 )
 
-export {Table}
+export {ReactTable}
