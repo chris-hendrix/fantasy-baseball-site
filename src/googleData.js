@@ -1,9 +1,9 @@
 import GoogleSpreadsheet from 'google-spreadsheet'
 
 // returns sheet from a google doc
-async function getSheet(docId, sheetName){
+async function getSheet(sheetName){
   // get doc by docID
-  const doc = new GoogleSpreadsheet.GoogleSpreadsheet(docId)
+  const doc = new GoogleSpreadsheet.GoogleSpreadsheet(process.env.REACT_APP_DOC_ID)
 
   // authenticate
   await doc.useServiceAccountAuth({
@@ -20,9 +20,9 @@ async function getSheet(docId, sheetName){
 }
 
 // gets 
-async function getSheetData(docId, sheetName, excludedColumns=[]) {
+async function getSheetData(sheetName) {
   // get sheet
-  const sheet = await getSheet(docId, sheetName)
+  const sheet = await getSheet(sheetName)
 
   // load rows and header rows
   const rows = await sheet.getRows({ offset: 0 })
@@ -43,10 +43,10 @@ async function getSheetData(docId, sheetName, excludedColumns=[]) {
   return data
 }
 
-async function getSheetColumns(docId, sheetName, filters={}, excludedColumns=[]){
+async function getSheetColumns(sheetName, filters={}, excludedColumns=[]){
 
   // get sheet and load header rows
-  const sheet = await getSheet(docId, sheetName)
+  const sheet = await getSheet(sheetName)
   await sheet.loadHeaderRow()
 
   // create list of react table column objects

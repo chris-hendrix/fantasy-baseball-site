@@ -6,7 +6,7 @@ export function PositionColumnFilter({
   // Calculate the options for filtering
   // using the preFilteredRows
   const options = React.useMemo(() => {
-    return ['C', '1B', '2B', '3B', 'SS', 'OF', 'SP', 'RP']
+    return ['C', '1B', '2B', '3B', 'SS', 'OF', "DH", 'SP', 'RP']
   })
 
   // Render a multi-select box

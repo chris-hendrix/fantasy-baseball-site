@@ -20,7 +20,6 @@ class PlayerTable extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      docId: '1I1G0P8QofhKL2f2EWTLeNGMZ3xedoC5j09FcxN2vigM',
       sheetName: 'Players',
       columns: [],
       data: [],
@@ -35,7 +34,7 @@ class PlayerTable extends React.Component {
   }
 
   getColumns() {
-    getSheetColumns(this.state.docId, this.state.sheetName, this.state.columnFilters, this.state.excludedColumns).then((columns)=>{
+    getSheetColumns(this.state.sheetName, this.state.columnFilters, this.state.excludedColumns).then((columns)=>{
       if (!equalObjects(this.state.columns, columns)){
         this.setState({ columns: columns })
       }
@@ -43,7 +42,7 @@ class PlayerTable extends React.Component {
   }
 
   getData() {
-    getSheetData(this.state.docId, this.state.sheetName).then((data)=>{
+    getSheetData(this.state.sheetName).then((data)=>{
       // check if data has been updated
       if (!equalObjects(this.state.data, data)){
         this.setState({ data: data })
