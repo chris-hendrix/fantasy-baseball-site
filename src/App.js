@@ -1,7 +1,20 @@
 import React from 'react'
 import { getSheetColumns, getSheetData } from './googleData'
-import {Table} from './Components/FilterTable'
+import {Table} from './Components/ReactTable'
 import styled from 'styled-components'
+
+import {
+  EditableCell,
+  DefaultColumnFilter,
+  SelectColumnFilter,
+  SliderColumnFilter,
+  NumberRangeColumnFilter,
+  fuzzyTextFilterFn
+} from './Components/Fitlers'
+
+import {
+  PositionColumnFilter
+} from './Components/CustomFilters'
 
 const Styles = styled.div`
 padding: 1rem;
@@ -28,7 +41,7 @@ table {
 }
 `
 
-class App extends React.Component {
+class PlayerTable extends React.Component {
   constructor(props){
     super(props)
     this.state = {
@@ -37,12 +50,16 @@ class App extends React.Component {
       columns: [],
       data: [],
       interval: 10000,
-      filters: []
+      columnFilters: {
+        Name: DefaultColumnFilter,
+        Positions: PositionColumnFilter, 
+        Team: SelectColumnFilter
+      }
     }
   }
 
   getColumns() {
-    getSheetColumns(this.state.docId, this.state.sheetName).then((columns)=>{
+    getSheetColumns(this.state.docId, this.state.sheetName, this.state.columnFilters).then((columns)=>{
       if (!equalObjects(this.state.columns, columns)){
         this.setState({ columns: columns })
       }
@@ -58,26 +75,31 @@ class App extends React.Component {
     })
   }
 
-  componentDidMount() {
-    console.log('interval')
-    console.log(this.state.interval)
+  update() {
     this.getColumns()
-    this.timer = setInterval(() => {
-      this.getColumns()
-      this.getData()
-      console.log(this.state.columns)
-    }, this.state.interval)
     this.getData()
+  }
+
+  componentDidMount() {
+    this.getColumns()
+    this.timer = setInterval(() => { this.update() }, this.state.interval)
   }
 
   componentWillUnmount() {
       clearInterval(this.timer);
   }
 
+
   render() {
     return (
       <Styles>
-        <Table columns={this.state.columns} data={this.state.data} />
+        <Table 
+          columns={this.state.columns} 
+          data={this.state.data}
+          updateMyData={this.update()}
+          skipReset={true}
+          setPageSize={50}
+        />
       </Styles>
     )
   }
@@ -87,4 +109,4 @@ function equalObjects(a, b){
   return JSON.stringify(a) === JSON.stringify(b)
 }
 
-export default App
+export default PlayerTable

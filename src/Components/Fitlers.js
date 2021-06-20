@@ -1,40 +1,40 @@
 import React from 'react'
-import { useAsyncDebounce } from 'react-table'
 import { matchSorter } from 'match-sorter'
 
-// Define a default UI for filtering
-export function GlobalFilter({
-  preGlobalFilteredRows,
-  globalFilter,
-  setGlobalFilter,
-}) {
-  const count = preGlobalFilteredRows.length
-  const [value, setValue] = React.useState(globalFilter)
-  const onChange = useAsyncDebounce(value => {
-    setGlobalFilter(value || undefined)
-  }, 200)
+// Create an editable cell renderer
+const EditableCell = ({
+  value: initialValue,
+  row: { index },
+  column: { id },
+  updateMyData, // This is a custom function that we supplied to our table instance
+  editable,
+}) => {
+  // We need to keep and update the state of the cell normally
+  const [value, setValue] = React.useState(initialValue)
 
-  return (
-    <span>
-      Search:{' '}
-      <input
-        value={value || ""}
-        onChange={e => {
-          setValue(e.target.value);
-          onChange(e.target.value);
-        }}
-        placeholder={`${count} records...`}
-        style={{
-          fontSize: '1.1rem',
-          border: '0',
-        }}
-      />
-    </span>
-  )
+  const onChange = e => {
+    setValue(e.target.value)
+  }
+
+  // We'll only update the external data when the input is blurred
+  const onBlur = () => {
+    updateMyData(index, id, value)
+  }
+
+  // If the initialValue is changed externall, sync it up with our state
+  React.useEffect(() => {
+    setValue(initialValue)
+  }, [initialValue])
+
+  if (!editable) {
+    return `${initialValue}`
+  }
+
+  return <input value={value} onChange={onChange} onBlur={onBlur} />
 }
 
 // Define a default UI for filtering
-export function DefaultColumnFilter({
+function DefaultColumnFilter({
   column: { filterValue, preFilteredRows, setFilter },
 }) {
   const count = preFilteredRows.length
@@ -52,7 +52,7 @@ export function DefaultColumnFilter({
 
 // This is a custom filter UI for selecting
 // a unique option from a list
-export function SelectColumnFilter({
+function SelectColumnFilter({
   column: { filterValue, setFilter, preFilteredRows, id },
 }) {
   // Calculate the options for filtering
@@ -62,7 +62,8 @@ export function SelectColumnFilter({
     preFilteredRows.forEach(row => {
       options.add(row.values[id])
     })
-    return [...options.values()]
+    
+    return [...options.values()].sort()
   }, [id, preFilteredRows])
 
   // Render a multi-select box
@@ -86,7 +87,7 @@ export function SelectColumnFilter({
 // This is a custom filter UI that uses a
 // slider to set the filter value between a column's
 // min and max values
-export function SliderColumnFilter({
+function SliderColumnFilter({
   column: { filterValue, setFilter, preFilteredRows, id },
 }) {
   // Calculate the min and max
@@ -121,7 +122,7 @@ export function SliderColumnFilter({
 // This is a custom UI for our 'between' or number range
 // filter. It uses two number boxes and filters rows to
 // ones that have values between the two
-export function NumberRangeColumnFilter({
+function NumberRangeColumnFilter({
   column: { filterValue = [], preFilteredRows, setFilter, id },
 }) {
   const [min, max] = React.useMemo(() => {
@@ -171,14 +172,18 @@ export function NumberRangeColumnFilter({
   )
 }
 
-export function fuzzyTextFilterFn(rows, id, filterValue) {
+function fuzzyTextFilterFn(rows, id, filterValue) {
   return matchSorter(rows, filterValue, { keys: [row => row.values[id]] })
 }
 
-// Define a custom filter filter function!
-function filterGreaterThan(rows, id, filterValue) {
-  return rows.filter(row => {
-    const rowValue = row.values[id]
-    return rowValue >= filterValue
-  })
+// Let the table remove the filter if the string is empty
+fuzzyTextFilterFn.autoRemove = val => !val
+
+export {
+  EditableCell,
+  DefaultColumnFilter,
+  SelectColumnFilter,
+  SliderColumnFilter,
+  NumberRangeColumnFilter,
+  fuzzyTextFilterFn
 }

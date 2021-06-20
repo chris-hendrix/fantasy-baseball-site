@@ -9,7 +9,6 @@ async function getSheet(docId, sheetName){
     private_key: creds.private_key.replace(/\\n/g, "\n")
   });
   await doc.loadInfo();
-  console.log(doc)
   const sheet = doc.sheetsByTitle[sheetName];
   return sheet
 }
@@ -35,18 +34,29 @@ async function getSheetData(docId, sheetName) {
   return data
 }
 
-async function getSheetColumns(docId, sheetName){
+async function getSheetColumns(docId, sheetName, filters={}){
   const sheet = await getSheet(docId, sheetName)
   await sheet.loadHeaderRow()
+
+  // create list of column objects
   const headers = sheet.headerValues
   const columns = headers.map(h => {
-    return {
+    const column = {
       Header: h,
       accessor: getAccessor(h),
       canGroupBy: false,
+      disableFilters: true
     }
+    // add filter if defined
+    if (filters.hasOwnProperty(h)){
+      if (filters[h] !== undefined | filters[h] !== null){
+        column.disableFilters = false
+        column.Filter = filters[h]
+      }
+    }
+    return column
   })
-  
+  console.log(columns)
   return columns
 }
 export { getSheetColumns, getSheetData }
