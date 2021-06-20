@@ -17,11 +17,11 @@ import {
 } from './CustomFilters'
 
 
-class PlayerTable extends React.Component {
+class DraftTable extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      sheetName: 'Players',
+      sheetName: 'Draft',
       columns: [],
       data: [],
       interval: 20000,
@@ -31,12 +31,11 @@ class PlayerTable extends React.Component {
         Pos: PositionColumnFilter, 
         Team: SelectColumnFilter,
         Owner: SelectColumnFilter,
-        Status: SelectColumnFilter,
-        ADP: RoundColumnFilter
+        Status: SelectColumnFilter
       },
       options: {
         excludedColumns: [],
-        lastColumn: 'Pick'
+        lastColumn: 'Pos'
       }
     }
   }
@@ -90,4 +89,4 @@ function equalObjects(a, b){
   return JSON.stringify(a) === JSON.stringify(b)
 }
 
-export default PlayerTable
+export default DraftTable

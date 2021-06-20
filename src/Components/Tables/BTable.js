@@ -81,7 +81,7 @@ function ReactTable({ columns, data, updateMyData, skipReset }) {
     {
       columns,
       data,
-      initialState: { pageSize: 50},
+      initialState: { pageSize: 220},
       defaultColumn,
       filterTypes,
       // updateMyData isn't part of the API, but
@@ -214,7 +214,7 @@ function ReactTable({ columns, data, updateMyData, skipReset }) {
             setPageSize(Number(e.target.value))
           }}
         >
-          {[25, 50, 100].map(pageSize => (
+          {[25, 50, 100, 220].map(pageSize => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}
             </option>
