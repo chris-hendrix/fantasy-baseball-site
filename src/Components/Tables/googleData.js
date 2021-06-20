@@ -1,4 +1,5 @@
 import GoogleSpreadsheet from 'google-spreadsheet'
+import creds from '../../client_secret.json'
 
 // returns sheet from a google doc
 async function getSheet(sheetName){
@@ -7,8 +8,8 @@ async function getSheet(sheetName){
 
   // authenticate
   await doc.useServiceAccountAuth({
-    client_email: process.env.REACT_APP_CLIENT_EMAIL,
-    private_key: process.env.REACT_APP_PRIVATE_KEY.replace(/\\n/g, "\n")
+    client_email: creds.client_email,
+    private_key: creds.private_key.replace(/\\n/g, "\n")
   });
 
   // load info
@@ -43,7 +44,7 @@ async function getSheetData(sheetName) {
   return data
 }
 
-async function getSheetColumns(sheetName, filters={}, excludedColumns=[]){
+async function getSheetColumns(sheetName, filters={}, options={}){
 
   // get sheet and load header rows
   const sheet = await getSheet(sheetName)
@@ -56,7 +57,12 @@ async function getSheetColumns(sheetName, filters={}, excludedColumns=[]){
   headers.forEach(h => {
 
     // skip excluded columns
-    if (excludedColumns.includes(h)) { return }
+    if(options.hasOwnProperty('excludedColumns')){
+      if (options.excludedColumns.includes(h)) { return }
+    }
+
+    // stop after last column
+
 
     // create react table column object
     const column = {
@@ -65,6 +71,8 @@ async function getSheetColumns(sheetName, filters={}, excludedColumns=[]){
       canGroupBy: false,
       disableFilters: true
     }
+
+    
 
     // add filter if defined
     if (filters.hasOwnProperty(h)){

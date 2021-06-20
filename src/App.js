@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
-import PlayerTable from './Components/PlayerTable';
-
-class App extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {}
-    }
-
-    render() {
-        return (
-          <div className="App">
-            <PlayerTable/>
-          </div>
-        );
-      }
-
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Navigation, Footer, Home, About, Contact, Draft } from "./Components/Pages";
+function App() {
+  return (
+    <div className="App">
+      <Router>
+        <Navigation />
+        <Switch>
+          <Route path="/" exact component={() => <Home />} />
+          <Route path="/about" exact component={() => <About />} />
+          <Route path="/contact" exact component={() => <Contact />} />
+          <Route path="/Draft" exact component={() => <Draft />} />
+        </Switch>
+        <Footer />
+      </Router>
+    </div>
+  );
 }
 
-export default App
+export default App;

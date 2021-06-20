@@ -1,5 +1,5 @@
 import React from 'react'
-import { getSheetColumns, getSheetData } from '../googleData'
+import { getSheetColumns, getSheetData } from './googleData'
 import {ReactTable} from './BTable'
 
 import {
@@ -29,12 +29,14 @@ class PlayerTable extends React.Component {
         Positions: PositionColumnFilter, 
         Team: SelectColumnFilter
       },
-      excludedColumns: ['Link']
+      options: {
+        excludedColumns: ['Link']
+      }
     }
   }
 
   getColumns() {
-    getSheetColumns(this.state.sheetName, this.state.columnFilters, this.state.excludedColumns).then((columns)=>{
+    getSheetColumns(this.state.sheetName, this.state.columnFilters, this.state.options).then((columns)=>{
       if (!equalObjects(this.state.columns, columns)){
         this.setState({ columns: columns })
       }
