@@ -34,8 +34,8 @@ class DraftTable extends React.Component {
         Status: SelectColumnFilter
       },
       options: {
-        excludedColumns: [],
-        lastColumn: 'Pos'
+        links: [{Name: 'Link'}],
+        lastColumn: 'Pts'
       }
     }
   }
@@ -80,6 +80,7 @@ class DraftTable extends React.Component {
           updateMyData={this.update()}
           skipReset={true}
           setPageSize={50}
+          showPages={false}
         />
     )
   }

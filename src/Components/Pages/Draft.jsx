@@ -5,7 +5,7 @@ import DraftTable from '../Tables/DraftTable';
 function Draft() {
   return (
     <div className="players">
-      <div class="container">
+      <div class="container pb-5">
         <div class="row align-items-top my-5">
           <div class="col-lg-5">
             <h1 class="font-weight-light">Draft</h1>

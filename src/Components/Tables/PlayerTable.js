@@ -25,6 +25,7 @@ class PlayerTable extends React.Component {
       columns: [],
       data: [],
       interval: 20000,
+      hiddenColumns: ['Link'],
       columnFilters: {
         Pick: RoundColumnFilter,
         Name: DefaultColumnFilter,
@@ -35,8 +36,9 @@ class PlayerTable extends React.Component {
         ADP: RoundColumnFilter
       },
       options: {
-        excludedColumns: [],
-        lastColumn: 'Pick'
+        links: [{Name: 'Link'}],
+        lastColumn: 'Pick',
+        addedColumns: []
       }
     }
   }
@@ -80,7 +82,8 @@ class PlayerTable extends React.Component {
           data={this.state.data}
           updateMyData={this.update()}
           skipReset={true}
-          setPageSize={50}
+          pageSize={220}
+          hiddenColumns={this.state.hiddenColumns}
         />
     )
   }

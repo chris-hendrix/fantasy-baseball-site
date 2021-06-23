@@ -1,5 +1,6 @@
 import GoogleSpreadsheet from 'google-spreadsheet'
 import creds from '../../client_secret.json'
+import React from 'react'
 
 // returns sheet from a google doc
 async function getSheet(sheetName){
@@ -44,6 +45,7 @@ async function getSheetData(sheetName) {
   return data
 }
 
+// https://stackoverflow.com/questions/56922381/how-to-include-url-in-react-table-cell
 async function getSheetColumns(sheetName, filters={}, options={}){
 
   // get sheet and load header rows
@@ -66,11 +68,6 @@ async function getSheetColumns(sheetName, filters={}, options={}){
     // skip if accessor exists
     if (accessors.includes(accessor)) { continue; }
 
-    // skip excluded columns
-    if(options.hasOwnProperty('excludedColumns')){
-      if (options.excludedColumns.includes(header)) { continue; }
-    }
-
     // create react table column object
     const column = {
       Header: header,
@@ -87,6 +84,16 @@ async function getSheetColumns(sheetName, filters={}, options={}){
       }
     }
 
+    // add hyperlink if defined
+    if (options.hasOwnProperty('links')) {
+      options.links.forEach(link => {
+        if (link.hasOwnProperty(header)){
+          const linkAccessor = getAccessor(link[header])
+          column.Cell = ({ row }) => <a href={row.original[linkAccessor]} target="_blank">{row.original[accessor]}</a>
+        }
+      })
+    }
+
     // add to list
     accessors.push(accessor)
     columns.push(column)
@@ -95,6 +102,13 @@ async function getSheetColumns(sheetName, filters={}, options={}){
     if(options.hasOwnProperty('lastColumn')){
       if (options.lastColumn == header) { break; }
     }
+  }
+
+  // added columns
+  if (options.hasOwnProperty('addedColumns')){
+    options.addedColumns.forEach(c=>{
+      columns.push(c)
+    })
   }
   
   return columns

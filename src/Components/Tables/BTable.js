@@ -17,10 +17,12 @@ import {
     fuzzyTextFilterFn
   } from './Fitlers'
 
+  const debug = false
+
 
 
 // Be sure to pass our updateMyData and the skipReset option
-function ReactTable({ columns, data, updateMyData, skipReset }) {
+function ReactTable({ columns, data, updateMyData, skipReset, showPages=true}) {
   const filterTypes = React.useMemo(
     () => ({
       // Add a new fuzzyTextFilterFn filter type.
@@ -81,7 +83,9 @@ function ReactTable({ columns, data, updateMyData, skipReset }) {
     {
       columns,
       data,
-      initialState: { pageSize: 220},
+      initialState: { 
+        pageSize: 220
+      },
       defaultColumn,
       filterTypes,
       // updateMyData isn't part of the API, but
@@ -177,6 +181,7 @@ function ReactTable({ columns, data, updateMyData, skipReset }) {
         Pagination can be built however you'd like.
         This is just a very basic UI implementation:
       */}
+      {showPages &&
       <div className="pagination">
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {'<<'}
@@ -220,10 +225,11 @@ function ReactTable({ columns, data, updateMyData, skipReset }) {
             </option>
           ))}
         </select>
-      </div>
+      </div>}
       <pre>
         <code>
-          {JSON.stringify(
+          
+          {debug && JSON.stringify(
             {
               pageIndex,
               pageSize,
@@ -241,6 +247,8 @@ function ReactTable({ columns, data, updateMyData, skipReset }) {
           )}
         </code>
       </pre>
+      <br/>
+      <br/>
     </>
   )
 }
