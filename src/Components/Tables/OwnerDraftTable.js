@@ -12,32 +12,24 @@ import {
 } from './Fitlers'
 
 import {
-  DraftedColumnFilter,
   PositionColumnFilter,
   RoundColumnFilter
 } from './CustomFilters'
 
 
-class DraftTable extends React.Component {
+class OwnerDraftTable extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      sheetName: 'Draft',
+      sheetName: 'OwnerDraft',
       columns: [],
       data: [],
       interval: 0,
       columnFilters: {
-        Pick: RoundColumnFilter,
-        Name: DefaultColumnFilter,
-        Pos: PositionColumnFilter, 
-        Team: SelectColumnFilter,
-        Owner: SelectColumnFilter,
-        Status: SelectColumnFilter
       },
       options: {
-        links: [{Name: 'Link'}],
-        lastColumn: 'Pts',
-        nullValues: [{Name: '<Pending>'}]
+        links: [],
+        addedColumns: []
       }
     }
   }
@@ -85,8 +77,9 @@ class DraftTable extends React.Component {
           data={this.state.data}
           updateMyData={this.update()}
           skipReset={true}
-          initialPageSize={50}
-          showPages={true}
+          showPages={false}
+          initialPageSize={10}
+          hiddenColumns={this.state.hiddenColumns}
         />
     )
   }
@@ -96,4 +89,4 @@ function equalObjects(a, b){
   return JSON.stringify(a) === JSON.stringify(b)
 }
 
-export default DraftTable
+export default OwnerDraftTable

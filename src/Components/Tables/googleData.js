@@ -73,8 +73,9 @@ async function getSheetColumns(sheetName, filters={}, options={}){
       Header: header,
       accessor: accessor,
       canGroupBy: false,
-      disableFilters: true
+      disableFilters: true,
     }
+
 
     // add filter if defined
     if (filters.hasOwnProperty(header)){
@@ -93,6 +94,19 @@ async function getSheetColumns(sheetName, filters={}, options={}){
         }
       })
     }
+
+    // replace null values
+    /*
+    if (options.hasOwnProperty('nullValues')) {
+      options.nullValues.forEach(nv => {
+        if (nv.hasOwnProperty(header)){
+          const nullValue = nv[header]
+          const accessor = getAccessor(header)
+          column.Cell = ({ row }) => {if(row.original[accessor]==""){row.original[accessor]=nullValue}}
+        }
+      })
+    }
+    */
 
     // add to list
     accessors.push(accessor)

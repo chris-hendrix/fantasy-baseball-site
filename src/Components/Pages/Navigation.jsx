@@ -18,7 +18,6 @@ function Navigation(props) {
               >
                 <Link class="nav-link" to="/">
                   Home
-                  <span class="sr-only">(current)</span>
                 </Link>
               </li>
               <li
@@ -49,6 +48,25 @@ function Navigation(props) {
                   Draft
                 </Link>
                 
+              </li>
+              <li
+                class={`nav-item  ${
+                  props.location.pathname === "/Keepers" ? "active" : ""
+                }`}
+              >
+                <Link class="nav-link" to="/Keepers">
+                  Keepers
+                </Link>
+                
+              </li>
+              <li
+                class={`nav-item  ${
+                  props.location.pathname === "/Rules" ? "active" : ""
+                }`}
+              >
+                <Link class="nav-link" to="/Rules">
+                  Rulebook
+                </Link>
               </li>
             </ul>
           </div>

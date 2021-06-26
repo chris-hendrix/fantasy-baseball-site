@@ -1,5 +1,25 @@
 import React from 'react'
 
+function DraftedColumnFilter({column: { filterValue, setFilter, preFilteredRows, id },}) 
+{
+  // Render a multi-select box
+  return (
+    <select
+      value={filterValue}
+      onChange={e => {
+        console.log(filterValue)
+        console.log(e.target.value)
+        const filterValue2 = e.target.value=="All" ? undefined : ""
+        console.log(filterValue2)
+        setFilter(filterValue2)
+      }}
+    >
+      <option value="All">All</option>
+      <option value="">Drafted</option>
+    </select>
+  )
+}
+
 function PositionColumnFilter({
   column: { filterValue, setFilter, preFilteredRows, id },
 }) {
@@ -14,6 +34,7 @@ function PositionColumnFilter({
     <select
       value={filterValue}
       onChange={e => {
+        console.log(e.target.value)
         setFilter(e.target.value || undefined)
       }}
     >
@@ -61,6 +82,8 @@ function RoundColumnFilter({
 }
 
 export {
+  DraftedColumnFilter,
   PositionColumnFilter,
   RoundColumnFilter
 }
+

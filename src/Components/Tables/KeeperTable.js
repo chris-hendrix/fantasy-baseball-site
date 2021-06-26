@@ -22,22 +22,19 @@ class DraftTable extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      sheetName: 'Draft',
+      sheetName: 'Keepers',
       columns: [],
       data: [],
       interval: 0,
       columnFilters: {
-        Pick: RoundColumnFilter,
         Name: DefaultColumnFilter,
         Pos: PositionColumnFilter, 
         Team: SelectColumnFilter,
         Owner: SelectColumnFilter,
-        Status: SelectColumnFilter
       },
       options: {
         links: [{Name: 'Link'}],
-        lastColumn: 'Pts',
-        nullValues: [{Name: '<Pending>'}]
+        lastColumn: 'RdMx'
       }
     }
   }
@@ -86,7 +83,7 @@ class DraftTable extends React.Component {
           updateMyData={this.update()}
           skipReset={true}
           initialPageSize={50}
-          showPages={true}
+          showPages={false}
         />
     )
   }

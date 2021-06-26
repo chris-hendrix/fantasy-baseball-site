@@ -24,8 +24,7 @@ class PlayerTable extends React.Component {
       sheetName: 'Players',
       columns: [],
       data: [],
-      interval: 20000,
-      hiddenColumns: ['Link'],
+      interval: 0,
       columnFilters: {
         Pick: RoundColumnFilter,
         Name: DefaultColumnFilter,
@@ -67,11 +66,15 @@ class PlayerTable extends React.Component {
 
   componentDidMount() {
     this.getColumns()
-    this.timer = setInterval(() => { this.update() }, this.state.interval)
+    if(this.interval>=1000){
+      this.timer = setInterval(() => { this.update() }, this.state.interval)
+    }
   }
 
   componentWillUnmount() {
+    if(this.interval>=1000){
       clearInterval(this.timer);
+    }
   }
 
 
@@ -82,7 +85,7 @@ class PlayerTable extends React.Component {
           data={this.state.data}
           updateMyData={this.update()}
           skipReset={true}
-          pageSize={220}
+          initialPageSize={50}
           hiddenColumns={this.state.hiddenColumns}
         />
     )

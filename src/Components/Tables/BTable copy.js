@@ -14,15 +14,16 @@ import {
 } from 'react-table'
 
 import {
-  DefaultColumnFilter,
-  fuzzyTextFilterFn
-} from './Fitlers'
+    DefaultColumnFilter,
+    fuzzyTextFilterFn
+  } from './Fitlers'
 
-const debug = false
+  const debug = false
+
 
 
 // Be sure to pass our updateMyData and the skipReset option
-function ReactTable({ columns, data, updateMyData, skipReset, initialPageSize, showPages = true }) {
+function ReactTable({ columns, data, updateMyData, skipReset, showPages=true}) {
   const filterTypes = React.useMemo(
     () => ({
       // Add a new fuzzyTextFilterFn filter type.
@@ -34,8 +35,8 @@ function ReactTable({ columns, data, updateMyData, skipReset, initialPageSize, s
           const rowValue = row.values[id]
           return rowValue !== undefined
             ? String(rowValue)
-              .toLowerCase()
-              .startsWith(String(filterValue).toLowerCase())
+                .toLowerCase()
+                .startsWith(String(filterValue).toLowerCase())
             : true
         })
       },
@@ -83,8 +84,8 @@ function ReactTable({ columns, data, updateMyData, skipReset, initialPageSize, s
     {
       columns,
       data,
-      initialState: {
-        pageSize: initialPageSize,
+      initialState: { 
+        pageSize: 220
       },
       defaultColumn,
       filterTypes,
@@ -108,60 +109,14 @@ function ReactTable({ columns, data, updateMyData, skipReset, initialPageSize, s
     usePagination,
     useRowSelect,
     // Here we will use a plugin to add our selection column
-
+   
   )
 
   // Render the UI for your table
   return (
     <>
-        {showPages &&
-        <div>
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="javascript:void(0);" onClick={() => previousPage()} disabled={!canPreviousPage}>&laquo;</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="javascript:void(0);" onClick={() => nextPage()} disabled={!canNextPage}>&raquo;</a>
-            </li>
-
-            {/* Page Status*/}
-            <li>
-              <button class="btn btn-secondary" disabled>
-                Page{' '}
-                <strong>
-                  {pageIndex + 1} of {pageOptions.length}
-                </strong>{' '}
-              </button>
-            </li>
-
-            {/* Page Dropdown*/}
-            <li>
-              <select
-                class="form-select"
-                value={pageSize}
-                onChange={e => {
-                  setPageSize(Number(e.target.value))
-                }}
-              >
-                {[25, 50, 100, 220].map(pageSize => (
-                  <option key={pageSize} value={pageSize}>
-                    Show {pageSize}
-                  </option>
-                ))}
-              </select>
-            </li>
-            
-            
-          </ul>
-
-          
-
-        </div>
-        
-      }
-
-      <BTable striped bordered hover top size="sm" {...getTableProps()}>
-        <thead class="align-items-center font-size-10">
+      <BTable striped bordered hover size="sm" {...getTableProps()}>
+        <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
@@ -227,10 +182,54 @@ function ReactTable({ columns, data, updateMyData, skipReset, initialPageSize, s
         Pagination can be built however you'd like.
         This is just a very basic UI implementation:
       */}
-
+      {showPages &&
+      <div className="pagination">
+        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+          {'<<'}
+        </button>{' '}
+        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+          {'<'}
+        </button>{' '}
+        <button onClick={() => nextPage()} disabled={!canNextPage}>
+          {'>'}
+        </button>{' '}
+        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+          {'>>'}
+        </button>{' '}
+        <span>
+          Page{' '}
+          <strong>
+            {pageIndex + 1} of {pageOptions.length}
+          </strong>{' '}
+        </span>
+        <span>
+          | Go to page:{' '}
+          <input
+            type="number"
+            defaultValue={pageIndex + 1}
+            onChange={e => {
+              const page = e.target.value ? Number(e.target.value) - 1 : 0
+              gotoPage(page)
+            }}
+            style={{ width: '100px' }}
+          />
+        </span>{' '}
+        <select
+          value={pageSize}
+          onChange={e => {
+            setPageSize(Number(e.target.value))
+          }}
+        >
+          {[25, 50, 100, 220].map(pageSize => (
+            <option key={pageSize} value={pageSize}>
+              Show {pageSize}
+            </option>
+          ))}
+        </select>
+      </div>}
       <pre>
         <code>
-
+          
           {debug && JSON.stringify(
             {
               pageIndex,
@@ -249,8 +248,8 @@ function ReactTable({ columns, data, updateMyData, skipReset, initialPageSize, s
           )}
         </code>
       </pre>
-      <br />
-      <br />
+      <br/>
+      <br/>
     </>
   )
 }
@@ -301,4 +300,4 @@ const IndeterminateCheckbox = React.forwardRef(
   }
 )
 
-export { ReactTable }
+export {ReactTable}
