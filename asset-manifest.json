@@ -1,27 +1,26 @@
 {
   "files": {
-    "main.css": "/fantasy-baseball-site/static/css/main.69eda509.chunk.css",
-    "main.js": "/fantasy-baseball-site/static/js/main.6629ef0e.chunk.js",
-    "main.js.map": "/fantasy-baseball-site/static/js/main.6629ef0e.chunk.js.map",
-    "runtime-main.js": "/fantasy-baseball-site/static/js/runtime-main.25b5f25e.js",
-    "runtime-main.js.map": "/fantasy-baseball-site/static/js/runtime-main.25b5f25e.js.map",
-    "static/css/2.68d0aaf2.chunk.css": "/fantasy-baseball-site/static/css/2.68d0aaf2.chunk.css",
-    "static/js/2.0bfe3dc4.chunk.js": "/fantasy-baseball-site/static/js/2.0bfe3dc4.chunk.js",
-    "static/js/2.0bfe3dc4.chunk.js.map": "/fantasy-baseball-site/static/js/2.0bfe3dc4.chunk.js.map",
-    "index.html": "/fantasy-baseball-site/index.html",
-    "precache-manifest.8711bbd08d5e2686b98febd43199f263.js": "/fantasy-baseball-site/precache-manifest.8711bbd08d5e2686b98febd43199f263.js",
-    "service-worker.js": "/fantasy-baseball-site/service-worker.js",
-    "static/css/2.68d0aaf2.chunk.css.map": "/fantasy-baseball-site/static/css/2.68d0aaf2.chunk.css.map",
-    "static/css/main.69eda509.chunk.css.map": "/fantasy-baseball-site/static/css/main.69eda509.chunk.css.map",
-    "static/media/champ.jpg": "/fantasy-baseball-site/static/media/champ.11a050e3.jpg",
-    "static/media/home.md": "/fantasy-baseball-site/static/media/home.231fe8ad.md",
-    "static/media/rules.md": "/fantasy-baseball-site/static/media/rules.3383116d.md"
+    "main.css": "/fantasy-baseball-site/home/static/css/main.69eda509.chunk.css",
+    "main.js": "/fantasy-baseball-site/home/static/js/main.6fe2d00c.chunk.js",
+    "main.js.map": "/fantasy-baseball-site/home/static/js/main.6fe2d00c.chunk.js.map",
+    "runtime-main.js": "/fantasy-baseball-site/home/static/js/runtime-main.000dc237.js",
+    "runtime-main.js.map": "/fantasy-baseball-site/home/static/js/runtime-main.000dc237.js.map",
+    "static/css/2.68d0aaf2.chunk.css": "/fantasy-baseball-site/home/static/css/2.68d0aaf2.chunk.css",
+    "static/js/2.5d3ccb6d.chunk.js": "/fantasy-baseball-site/home/static/js/2.5d3ccb6d.chunk.js",
+    "static/js/2.5d3ccb6d.chunk.js.map": "/fantasy-baseball-site/home/static/js/2.5d3ccb6d.chunk.js.map",
+    "index.html": "/fantasy-baseball-site/home/index.html",
+    "precache-manifest.b68a4e639e3832dd135e3b2ea522e73c.js": "/fantasy-baseball-site/home/precache-manifest.b68a4e639e3832dd135e3b2ea522e73c.js",
+    "service-worker.js": "/fantasy-baseball-site/home/service-worker.js",
+    "static/css/2.68d0aaf2.chunk.css.map": "/fantasy-baseball-site/home/static/css/2.68d0aaf2.chunk.css.map",
+    "static/css/main.69eda509.chunk.css.map": "/fantasy-baseball-site/home/static/css/main.69eda509.chunk.css.map",
+    "static/media/champ.jpg": "/fantasy-baseball-site/home/static/media/champ.11a050e3.jpg",
+    "static/media/rules.md": "/fantasy-baseball-site/home/static/media/rules.3383116d.md"
   },
   "entrypoints": [
-    "static/js/runtime-main.25b5f25e.js",
+    "static/js/runtime-main.000dc237.js",
     "static/css/2.68d0aaf2.chunk.css",
-    "static/js/2.0bfe3dc4.chunk.js",
+    "static/js/2.5d3ccb6d.chunk.js",
     "static/css/main.69eda509.chunk.css",
-    "static/js/main.6629ef0e.chunk.js"
+    "static/js/main.6fe2d00c.chunk.js"
   ]
 }
