@@ -1,28 +1,21 @@
 import React from "react";
-import PlayerTable from '../Tables/PlayerTable';
-import DraftTable from '../Tables/DraftTable';
-import OwnerDraftTable from '../Tables/OwnerDraftTable';
+import KeeperHistoryTable from '../Tables/KeeperHistoryTable';
+import DraftHistoryTable from '../Tables/DraftHistoryTable';
 
-function Draft() {
+function History() {
   return (
     <div className="players">
       <div class="container pb-5 w-100 p-3">
-        <h1 class="text-center">Draft</h1>
+        <h1 class="text-center">History</h1>
         <hr class="col-lg-12 mx-auto"/>
-        <div class="row align-items-top my-5">
-          <div class="col-lg-12">
-          <h3>Owners</h3>
-            <OwnerDraftTable/>
-          </div>
-        </div>
         <div class="row align-items-top pd-5">
-          <div class="col-lg-5">
-            <h3>Draft</h3>
-            <DraftTable/>  
+          <div class="col-lg-6">
+            <h3>Draft History</h3> 
+            < DraftHistoryTable/>
           </div>
-          <div class="col-lg-7">
-            <h3>Players</h3>
-            <PlayerTable/>
+          <div class="col-lg-6">
+            <h3>Keeper History</h3>
+            < KeeperHistoryTable/>
           </div>
         </div>
         
@@ -31,4 +24,4 @@ function Draft() {
   );
 }
 
-export default Draft;
+export default History;

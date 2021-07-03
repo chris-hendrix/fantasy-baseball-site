@@ -7,3 +7,5 @@ export { default as Draft } from "./Draft";
 export { default as Rules } from "./Rules";
 export { default as MdPage} from "./MdPage"
 export { default as Keepers} from "./Keepers"
+export { default as History} from "./History"
+export { default as Stats} from "./Stats"

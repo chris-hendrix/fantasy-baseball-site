@@ -18,23 +18,17 @@ import {
 } from './CustomFilters'
 
 
-class KeeperTable extends React.Component {
+class OwnerStatsTable extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      sheetName: 'Keepers',
+      sheetName: 'OwnerStats',
       columns: [],
       data: [],
       interval: 0,
       columnFilters: {
-        Name: DefaultColumnFilter,
-        Pos: PositionColumnFilter, 
-        Team: SelectColumnFilter,
-        Owner: SelectColumnFilter,
       },
       options: {
-        links: [{Name: 'Link'}],
-        lastColumn: 'RdMx'
       }
     }
   }
@@ -93,4 +87,4 @@ function equalObjects(a, b){
   return JSON.stringify(a) === JSON.stringify(b)
 }
 
-export default KeeperTable
+export default OwnerStatsTable

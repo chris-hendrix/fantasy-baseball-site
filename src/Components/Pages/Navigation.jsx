@@ -22,50 +22,51 @@ function Navigation(props) {
               </li>
               <li
                 class={`nav-item  ${
-                  props.location.pathname === "/about" ? "active" : ""
+                  props.location.pathname === "/draft" ? "active" : ""
                 }`}
               >
-                <Link class="nav-link" to="/about">
-                  About
-                </Link>
-              </li>
-              <li
-                class={`nav-item  ${
-                  props.location.pathname === "/contact" ? "active" : ""
-                }`}
-              >
-                <Link class="nav-link" to="/contact">
-                  Contact
-                </Link>
-                
-              </li>
-              <li
-                class={`nav-item  ${
-                  props.location.pathname === "/Draft" ? "active" : ""
-                }`}
-              >
-                <Link class="nav-link" to="/Draft">
+                <Link class="nav-link" to="/draft">
                   Draft
                 </Link>
                 
               </li>
               <li
                 class={`nav-item  ${
-                  props.location.pathname === "/Keepers" ? "active" : ""
+                  props.location.pathname === "/keepers" ? "active" : ""
                 }`}
               >
-                <Link class="nav-link" to="/Keepers">
+                <Link class="nav-link" to="/keepers">
                   Keepers
                 </Link>
                 
               </li>
               <li
                 class={`nav-item  ${
-                  props.location.pathname === "/Rules" ? "active" : ""
+                  props.location.pathname === "/stats" ? "active" : ""
                 }`}
               >
-                <Link class="nav-link" to="/Rules">
-                  Rulebook
+                <Link class="nav-link" to="/stats">
+                  Stats
+                </Link>
+                
+              </li>
+              <li
+                class={`nav-item  ${
+                  props.location.pathname === "/history" ? "active" : ""
+                }`}
+              >
+                <Link class="nav-link" to="/history">
+                  History
+                </Link>
+                
+              </li>
+              <li
+                class={`nav-item  ${
+                  props.location.pathname === "/rules" ? "active" : ""
+                }`}
+              >
+                <Link class="nav-link" to="/rules">
+                  Rules
                 </Link>
               </li>
             </ul>

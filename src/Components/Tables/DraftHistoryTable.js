@@ -18,23 +18,25 @@ import {
 } from './CustomFilters'
 
 
-class KeeperTable extends React.Component {
+class DraftHistoryTable extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      sheetName: 'Keepers',
+      sheetName: 'DraftHistory',
       columns: [],
       data: [],
       interval: 0,
       columnFilters: {
+        Year: SelectColumnFilter,
+        Pick: RoundColumnFilter,
         Name: DefaultColumnFilter,
         Pos: PositionColumnFilter, 
         Team: SelectColumnFilter,
         Owner: SelectColumnFilter,
       },
       options: {
-        links: [{Name: 'Link'}],
-        lastColumn: 'RdMx'
+        links: [],
+        lastColumn: 'Pos'
       }
     }
   }
@@ -83,7 +85,7 @@ class KeeperTable extends React.Component {
           updateMyData={this.update()}
           skipReset={true}
           initialPageSize={50}
-          showPages={false}
+          showPages={true}
         />
     )
   }
@@ -93,4 +95,4 @@ function equalObjects(a, b){
   return JSON.stringify(a) === JSON.stringify(b)
 }
 
-export default KeeperTable
+export default DraftHistoryTable
