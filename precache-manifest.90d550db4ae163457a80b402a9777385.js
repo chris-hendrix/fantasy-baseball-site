@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0e427f396e2478f66e4367344b5a1d65",
+    "revision": "7c1f2826a1536164a5f534fedbf5a8e5",
     "url": "/fantasy-baseball-site/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fantasy-baseball-site/static/css/2.68d0aaf2.chunk.css"
   },
   {
-    "revision": "a517b04eaf991a4f5385",
+    "revision": "0206aec1fe671fb31636",
     "url": "/fantasy-baseball-site/static/css/main.69eda509.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fantasy-baseball-site/static/js/2.1bf47b05.chunk.js"
   },
   {
-    "revision": "a517b04eaf991a4f5385",
-    "url": "/fantasy-baseball-site/static/js/main.afaff758.chunk.js"
+    "revision": "0206aec1fe671fb31636",
+    "url": "/fantasy-baseball-site/static/js/main.6d2bea0c.chunk.js"
   },
   {
     "revision": "aa5b3b3a994fb9d04bd9",
