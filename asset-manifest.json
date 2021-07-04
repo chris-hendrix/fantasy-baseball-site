@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/fantasy-baseball-site/static/css/main.69eda509.chunk.css",
-    "main.js": "/fantasy-baseball-site/static/js/main.6aea01c9.chunk.js",
-    "main.js.map": "/fantasy-baseball-site/static/js/main.6aea01c9.chunk.js.map",
+    "main.js": "/fantasy-baseball-site/static/js/main.10ff3b96.chunk.js",
+    "main.js.map": "/fantasy-baseball-site/static/js/main.10ff3b96.chunk.js.map",
     "runtime-main.js": "/fantasy-baseball-site/static/js/runtime-main.25b5f25e.js",
     "runtime-main.js.map": "/fantasy-baseball-site/static/js/runtime-main.25b5f25e.js.map",
     "static/css/2.68d0aaf2.chunk.css": "/fantasy-baseball-site/static/css/2.68d0aaf2.chunk.css",
-    "static/js/2.e66de94d.chunk.js": "/fantasy-baseball-site/static/js/2.e66de94d.chunk.js",
-    "static/js/2.e66de94d.chunk.js.map": "/fantasy-baseball-site/static/js/2.e66de94d.chunk.js.map",
+    "static/js/2.1bf47b05.chunk.js": "/fantasy-baseball-site/static/js/2.1bf47b05.chunk.js",
+    "static/js/2.1bf47b05.chunk.js.map": "/fantasy-baseball-site/static/js/2.1bf47b05.chunk.js.map",
     "index.html": "/fantasy-baseball-site/index.html",
-    "precache-manifest.e681f706fcca77e2c63d727f3d44165f.js": "/fantasy-baseball-site/precache-manifest.e681f706fcca77e2c63d727f3d44165f.js",
+    "precache-manifest.f2baf3234cdfde7957cc152cbc85f7ee.js": "/fantasy-baseball-site/precache-manifest.f2baf3234cdfde7957cc152cbc85f7ee.js",
     "service-worker.js": "/fantasy-baseball-site/service-worker.js",
     "static/css/2.68d0aaf2.chunk.css.map": "/fantasy-baseball-site/static/css/2.68d0aaf2.chunk.css.map",
     "static/css/main.69eda509.chunk.css.map": "/fantasy-baseball-site/static/css/main.69eda509.chunk.css.map",
@@ -19,8 +19,8 @@
   "entrypoints": [
     "static/js/runtime-main.25b5f25e.js",
     "static/css/2.68d0aaf2.chunk.css",
-    "static/js/2.e66de94d.chunk.js",
+    "static/js/2.1bf47b05.chunk.js",
     "static/css/main.69eda509.chunk.css",
-    "static/js/main.6aea01c9.chunk.js"
+    "static/js/main.10ff3b96.chunk.js"
   ]
 }
