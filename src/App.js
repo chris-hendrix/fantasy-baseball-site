@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter } from 'react-router-dom'
 import { Navigation, Footer, Home, About, Contact, Draft, Rules, Keepers, History, Stats } from "./Components/Pages";
 import "bootswatch/dist/simplex/bootstrap.min.css"
 
 function App() {
   return (
     <div className="App">
-      <Router>
+      <HashRouter>
         <Navigation />
         <Switch>
           <Route path="/" exact component={() => <Home />} />
@@ -19,7 +20,7 @@ function App() {
           <Route path="/rules" exact component={() => <Rules />} />
         </Switch>
         <Footer />
-      </Router>
+      </HashRouter>
     </div>
   );
 }

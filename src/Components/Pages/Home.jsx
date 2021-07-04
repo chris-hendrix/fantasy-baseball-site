@@ -1,6 +1,5 @@
 import React from "react";
-import markdown from "./markdown/home.md"
-import MdPage from "./MdPage"
+import champImage from "./images/champ.jpg"
 
 class Home extends React.Component {
   constructor(props) {
@@ -10,7 +9,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="about">
+      <div className="home">
         <div class="container justify-content-center">
           <div class="row justify-content-md-center my-5">
             <div class="col-lg-6 justify-content-center text-center">
@@ -18,7 +17,7 @@ class Home extends React.Component {
               <img
                 class="img-fluid rounded mx-auto mb-4 mb-lg-0"
                 align="center"
-                src="https://scontent-bos3-1.xx.fbcdn.net/v/t1.6435-9/45462756_10212187387789649_3623023416342216704_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=GYVgtxG8f4MAX8o9BgM&_nc_ht=scontent-bos3-1.xx&oh=517e84a4a0562c1f39ec63e2963b63f3&oe=60DB68B9"
+                src={champImage}
                 alt="file"
               />
             </div>
@@ -48,8 +47,11 @@ class Home extends React.Component {
               <ul>
                 <li><a href="https://fantasy.espn.com/baseball/league?leagueId=128975" target="_">ESPN League Home</a></li>
                 <li><a href="https://www.fantasypros.com/mlb/" target="_">FantasyPros - MLB</a></li>
-                <li><a href="/Draft">Draft</a></li>
-                <li><a href="/Rules">Rulebook</a></li>
+                <li><a href="/draft">Draft</a></li>
+                <li><a href="/keepers">Keepers</a></li>
+                <li><a href="/stats">Stats</a></li>
+                <li><a href="/stats">History</a></li>
+                <li><a href="/rules">Rules</a></li>
               </ul>
             </div>
           </div>
