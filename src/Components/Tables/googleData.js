@@ -21,8 +21,7 @@ async function getSheet(sheetName){
   return sheet
 }
 
-// gets 
-async function getSheetData(sheetName) {
+async function getDataAndHeaders(sheetName) {
   // get sheet
   const sheet = await getSheet(sheetName)
 
@@ -41,19 +40,21 @@ async function getSheetData(sheetName) {
     data.push(obj)
    })
 
+
    // return data
-  return data
+  return {data: data, headers: headers}
 }
 
-// https://stackoverflow.com/questions/56922381/how-to-include-url-in-react-table-cell
-async function getSheetColumns(sheetName, filters={}, options={}){
+async function getDataAndColumns(sheetName, filters={}, options={}){
+  const dataAndHeads = await getDataAndHeaders(sheetName)
+  const data = dataAndHeads.data
+  const columns = getColumns(dataAndHeads.headers, filters, options)
+  return {data: data, columns: columns}
+}
 
-  // get sheet and load header rows
-  const sheet = await getSheet(sheetName)
-  await sheet.loadHeaderRow()
+function getColumns(headers, filters={}, options={}){
 
   // create list of react table column objects
-  const headers = sheet.headerValues
   const columns = []
   const accessors = []
   for (var i=0; i<headers.length; i++){
@@ -86,6 +87,7 @@ async function getSheetColumns(sheetName, filters={}, options={}){
     }
 
     // add hyperlink if defined
+    // https://stackoverflow.com/questions/56922381/how-to-include-url-in-react-table-cell
     if (options.hasOwnProperty('links')) {
       options.links.forEach(link => {
         if (link.hasOwnProperty(header)){
@@ -94,19 +96,6 @@ async function getSheetColumns(sheetName, filters={}, options={}){
         }
       })
     }
-
-    // replace null values
-    /*
-    if (options.hasOwnProperty('nullValues')) {
-      options.nullValues.forEach(nv => {
-        if (nv.hasOwnProperty(header)){
-          const nullValue = nv[header]
-          const accessor = getAccessor(header)
-          column.Cell = ({ row }) => {if(row.original[accessor]==""){row.original[accessor]=nullValue}}
-        }
-      })
-    }
-    */
 
     // add to list
     accessors.push(accessor)
@@ -117,13 +106,6 @@ async function getSheetColumns(sheetName, filters={}, options={}){
       if (options.lastColumn == header) { break; }
     }
   }
-
-  // added columns
-  if (options.hasOwnProperty('addedColumns')){
-    options.addedColumns.forEach(c=>{
-      columns.push(c)
-    })
-  }
   
   return columns
 }
@@ -133,5 +115,4 @@ function getAccessor(columnName){
   return columnName.replace(/ /g, '').toLowerCase()
 }
 
-
-export { getSheetColumns, getSheetData }
+export { getDataAndColumns }

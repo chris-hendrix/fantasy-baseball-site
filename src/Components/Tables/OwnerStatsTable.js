@@ -1,5 +1,5 @@
 import React from 'react'
-import { getSheetColumns, getSheetData } from './googleData'
+import { getDataAndColumns } from './googleData'
 import {ReactTable} from './BTable'
 
 import {
@@ -33,30 +33,17 @@ class OwnerStatsTable extends React.Component {
     }
   }
 
-  getColumns() {
-    getSheetColumns(this.state.sheetName, this.state.columnFilters, this.state.options).then((columns)=>{
-      if (!equalObjects(this.state.columns, columns)){
-        this.setState({ columns: columns })
-      }
-    })
-  }
-
-  getData() {
-    getSheetData(this.state.sheetName).then((data)=>{
-      // check if data has been updated
-      if (!equalObjects(this.state.data, data)){
-        this.setState({ data: data })
-      }
-    })
-  }
-
   update() {
-    this.getColumns()
-    this.getData()
+    getDataAndColumns(this.state.sheetName, this.state.columnFilters, this.state.options).then((obj)=>{
+      // check if data has been updated
+      if (!equalObjects(this.state.data, obj.data)){
+        this.setState({ data: obj.data, columns: obj.columns })
+      }
+    })
   }
 
   componentDidMount() {
-    this.getColumns()
+    this.update()
     if(this.interval>=1000){
       this.timer = setInterval(() => { this.update() }, this.state.interval)
     }
