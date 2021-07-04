@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "957aba37946f2d6d5ff06eceb85e74cb",
+    "revision": "8d8a495fae14cd8ffd1f2fd1ae4870d8",
     "url": "/fantasy-baseball-site/index.html"
   },
   {
