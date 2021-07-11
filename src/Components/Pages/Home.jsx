@@ -47,11 +47,6 @@ class Home extends React.Component {
               <ul>
                 <li><a href="https://fantasy.espn.com/baseball/league?leagueId=128975" target="_">ESPN League Home</a></li>
                 <li><a href="https://www.fantasypros.com/mlb/" target="_">FantasyPros - MLB</a></li>
-                <li><a href="/#/draft">Draft</a></li>
-                <li><a href="/#/keepers">Keepers</a></li>
-                <li><a href="/#/stats">Stats</a></li>
-                <li><a href="/#/stats">History</a></li>
-                <li><a href="/#/rules">Rules</a></li>
               </ul>
             </div>
           </div>

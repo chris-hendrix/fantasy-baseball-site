@@ -57,13 +57,6 @@ class DraftHistoryTable extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.getColumns()
-    if(this.interval>=1000){
-      this.timer = setInterval(() => { this.update() }, this.state.interval)
-    }
-  }
-
   componentWillUnmount() {
     if(this.interval>=1000){
       clearInterval(this.timer);
