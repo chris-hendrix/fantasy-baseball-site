@@ -50,6 +50,7 @@ class Home extends React.Component {
               </ul>
             </div>
           </div>
+          <div class="row justify-content-md-center p-5"/>
         </div>
       </div>
     );

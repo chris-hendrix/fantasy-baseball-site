@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import mitLogo from "./images/mit-logo.svg"
 
 function Navigation(props) {
   return (
@@ -7,6 +8,7 @@ function Navigation(props) {
       <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
         <div class="container">
           <Link class="navbar-brand" to="/">
+            <span class='p-3'><img src={mitLogo} alt="mit-logo.svg" height="40"/></span>
             MIT Fantasy Baseball
           </Link>
           <div>
