@@ -1,5 +1,5 @@
 import React from 'react'
-import { matchSorter } from 'match-sorter'
+import {matchSorter} from 'match-sorter'
 
 // Create an editable cell renderer
 const EditableCell = ({

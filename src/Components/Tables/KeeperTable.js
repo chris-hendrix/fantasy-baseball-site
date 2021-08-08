@@ -1,5 +1,5 @@
 import React from 'react'
-import { getDataAndColumns } from './googleData'
+import {getDataAndColumns} from './TableData'
 import {ReactTable} from './BTable'
 
 import {
