@@ -1,27 +1,28 @@
 {
   "files": {
     "main.css": "/fantasy-baseball-site/static/css/main.69eda509.chunk.css",
-    "main.js": "/fantasy-baseball-site/static/js/main.4628984e.chunk.js",
-    "main.js.map": "/fantasy-baseball-site/static/js/main.4628984e.chunk.js.map",
+    "main.js": "/fantasy-baseball-site/static/js/main.f85ba22c.chunk.js",
+    "main.js.map": "/fantasy-baseball-site/static/js/main.f85ba22c.chunk.js.map",
     "runtime-main.js": "/fantasy-baseball-site/static/js/runtime-main.0d74738e.js",
     "runtime-main.js.map": "/fantasy-baseball-site/static/js/runtime-main.0d74738e.js.map",
     "static/css/2.e02f4b3b.chunk.css": "/fantasy-baseball-site/static/css/2.e02f4b3b.chunk.css",
-    "static/js/2.341735a6.chunk.js": "/fantasy-baseball-site/static/js/2.341735a6.chunk.js",
-    "static/js/2.341735a6.chunk.js.map": "/fantasy-baseball-site/static/js/2.341735a6.chunk.js.map",
+    "static/js/2.aae5aaa5.chunk.js": "/fantasy-baseball-site/static/js/2.aae5aaa5.chunk.js",
+    "static/js/2.aae5aaa5.chunk.js.map": "/fantasy-baseball-site/static/js/2.aae5aaa5.chunk.js.map",
     "index.html": "/fantasy-baseball-site/index.html",
-    "precache-manifest.28dee11abb435ff71206cbd94d36fa54.js": "/fantasy-baseball-site/precache-manifest.28dee11abb435ff71206cbd94d36fa54.js",
+    "precache-manifest.f8a5f54ae34021cb071f33eda50c2245.js": "/fantasy-baseball-site/precache-manifest.f8a5f54ae34021cb071f33eda50c2245.js",
     "service-worker.js": "/fantasy-baseball-site/service-worker.js",
     "static/css/2.e02f4b3b.chunk.css.map": "/fantasy-baseball-site/static/css/2.e02f4b3b.chunk.css.map",
     "static/css/main.69eda509.chunk.css.map": "/fantasy-baseball-site/static/css/main.69eda509.chunk.css.map",
-    "static/js/2.341735a6.chunk.js.LICENSE.txt": "/fantasy-baseball-site/static/js/2.341735a6.chunk.js.LICENSE.txt",
+    "static/js/2.aae5aaa5.chunk.js.LICENSE.txt": "/fantasy-baseball-site/static/js/2.aae5aaa5.chunk.js.LICENSE.txt",
     "static/media/champ.jpg": "/fantasy-baseball-site/static/media/champ.11a050e3.jpg",
+    "static/media/mit-logo.svg": "/fantasy-baseball-site/static/media/mit-logo.0a3d209d.svg",
     "static/media/rules.md": "/fantasy-baseball-site/static/media/rules.3383116d.md"
   },
   "entrypoints": [
     "static/js/runtime-main.0d74738e.js",
     "static/css/2.e02f4b3b.chunk.css",
-    "static/js/2.341735a6.chunk.js",
+    "static/js/2.aae5aaa5.chunk.js",
     "static/css/main.69eda509.chunk.css",
-    "static/js/main.4628984e.chunk.js"
+    "static/js/main.f85ba22c.chunk.js"
   ]
 }

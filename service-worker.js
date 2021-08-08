@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/fantasy-baseball-site/precache-manifest.28dee11abb435ff71206cbd94d36fa54.js"
+  "/fantasy-baseball-site/precache-manifest.f8a5f54ae34021cb071f33eda50c2245.js"
 );
 
 self.addEventListener('message', (event) => {
