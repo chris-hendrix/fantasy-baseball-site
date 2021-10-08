@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/fantasy-baseball-site/static/css/main.69eda509.chunk.css",
-    "main.js": "/fantasy-baseball-site/static/js/main.f85ba22c.chunk.js",
-    "main.js.map": "/fantasy-baseball-site/static/js/main.f85ba22c.chunk.js.map",
+    "main.js": "/fantasy-baseball-site/static/js/main.ef02234f.chunk.js",
+    "main.js.map": "/fantasy-baseball-site/static/js/main.ef02234f.chunk.js.map",
     "runtime-main.js": "/fantasy-baseball-site/static/js/runtime-main.0d74738e.js",
     "runtime-main.js.map": "/fantasy-baseball-site/static/js/runtime-main.0d74738e.js.map",
     "static/css/2.e02f4b3b.chunk.css": "/fantasy-baseball-site/static/css/2.e02f4b3b.chunk.css",
     "static/js/2.aae5aaa5.chunk.js": "/fantasy-baseball-site/static/js/2.aae5aaa5.chunk.js",
     "static/js/2.aae5aaa5.chunk.js.map": "/fantasy-baseball-site/static/js/2.aae5aaa5.chunk.js.map",
     "index.html": "/fantasy-baseball-site/index.html",
-    "precache-manifest.f8a5f54ae34021cb071f33eda50c2245.js": "/fantasy-baseball-site/precache-manifest.f8a5f54ae34021cb071f33eda50c2245.js",
+    "precache-manifest.ac8b6835b0342fe9e3761ede273d9bf2.js": "/fantasy-baseball-site/precache-manifest.ac8b6835b0342fe9e3761ede273d9bf2.js",
     "service-worker.js": "/fantasy-baseball-site/service-worker.js",
     "static/css/2.e02f4b3b.chunk.css.map": "/fantasy-baseball-site/static/css/2.e02f4b3b.chunk.css.map",
     "static/css/main.69eda509.chunk.css.map": "/fantasy-baseball-site/static/css/main.69eda509.chunk.css.map",
@@ -23,6 +23,6 @@
     "static/css/2.e02f4b3b.chunk.css",
     "static/js/2.aae5aaa5.chunk.js",
     "static/css/main.69eda509.chunk.css",
-    "static/js/main.f85ba22c.chunk.js"
+    "static/js/main.ef02234f.chunk.js"
   ]
 }
